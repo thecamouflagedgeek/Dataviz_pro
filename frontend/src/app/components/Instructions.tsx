@@ -60,7 +60,7 @@ const steps = [
 
 export default function Instructions() {
   return (
-    <section className="relative bg-gradient-to-b from-[#00091a] to-[#42c3e7] py-20 text-white px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-[#00091a] to-[#42c3e7] py-10 sm:py-16 md:py-20 text-white px-4 sm:px-6 md:px-8 overflow-hidden">
       {/* 🐠 Floating Fish & Jelly Container */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <Bubbles/>
@@ -68,7 +68,7 @@ export default function Instructions() {
         <motion.img
           src="/images/doryright.png"
           alt="dory fish"
-          className="absolute top-[50%] right-[-500px] w-[400px] opacity-30 select-none"
+          className="absolute top-[50%] right-[-500px] w-[150px] sm:w-[250px] md:w-[300px] lg:w-[400px] opacity-30 select-none"
           animate={{ x: ['500px', '-110%'], y: ['0px', '-30px', '0px'] }}
           transition={{
             duration: 18,
@@ -81,7 +81,7 @@ export default function Instructions() {
         <motion.img
           src="/images/jellydown.png"
           alt="jellyfish floating down"
-          className="absolute top-[-100px] left-[50%] w-[350px] opacity-20 select-none"
+          className="absolute top-[-100px] left-[50%] w-[150px] sm:w-[250px] md:w-[300px] lg:w-[350px] opacity-20 select-none"
           animate={{ y: ['-200px', '100%'] }}
           transition={{
             duration: 25,
@@ -94,7 +94,7 @@ export default function Instructions() {
         <motion.img
           src="/images/jellyup.png"
           alt="jellyfish floating up"
-          className="absolute bottom-[-300px] left-[10%] w-[350px] opacity-20 select-none"
+          className="absolute bottom-[-300px] left-[10%] w-[150px] sm:w-[250px] md:w-[300px] lg:w-[350px] opacity-20 select-none hidden sm:block"
           animate={{ y: ['100%', '-300px'] }}
           transition={{
             duration: 28,
@@ -107,7 +107,7 @@ export default function Instructions() {
         <motion.img
           src="/images/jellyup2.png"
           alt="jellyfish floating up again"
-          className="absolute bottom-[-300px] left-[70%] w-[250px] opacity-20 select-none"
+          className="absolute bottom-[-300px] left-[70%] w-[100px] sm:w-[150px] md:w-[200px] lg:w-[250px] opacity-20 select-none hidden sm:block"
           animate={{ y: ['100%', '-300px'] }}
           transition={{
             duration: 22,
@@ -118,9 +118,10 @@ export default function Instructions() {
       </div>
 
       {/* 💬 Instructions Content */}
-      <div className="max-w-6xl mx-auto text-center relative z-10">
+      <div className="max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto text-center relative z-10">
+
         <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 md:mb-10 lg:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -128,37 +129,37 @@ export default function Instructions() {
           How to Visualize Data Using Chart It?
         </motion.h2>
 
-        <div className="mx-auto grid gap-12 max-w-3xl">
+        <div className="mx-auto grid gap-6 sm:gap-8 md:gap-10 lg:gap-12">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-xl text-left border border-white/20"
+              className="bg-white/10 backdrop-blur-md p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-xl text-left border border-white/20"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="text-aqua-300 bg-white/20 p-3 rounded-full">
+              <div className="flex items-center space-x-3 sm:space-x-4 mb-2 sm:mb-3 md:mb-4">
+                <div className="text-aqua-300 bg-white/20 p-2 sm:p-3 rounded-full">
                   {step.icon}
                 </div>
-                <h3 className="text-2xl font-semibold">{step.title}</h3>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold">{step.title}</h3>
               </div>
-              <p className="text-white/80 text-lg mb-4">{step.description}</p>
+              <p className="text-white/80 text-sm sm:text-base md:text-lg mb-2 sm:mb-3 md:mb-4">{step.description}</p>
 
               {step.substeps && (
-                <div className="space-y-4 mt-4 pl-6 border-l-2 border-aqua-300">
+                <div className="space-y-2 sm:space-y-3 md:space-y-4 mt-3 sm:mt-4 pl-3 sm:pl-4 md:pl-6 border-l-2 border-aqua-300">
                   {step.substeps.map((sub, i) => (
                     <motion.div
                       key={i}
-                      className="flex items-start space-x-3"
+                      className="flex items-start space-x-2 sm:space-x-3"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: i * 0.3 }}
                     >
-                      <div className="text-white">{sub.icon}</div>
+                      <div className="text-white mt-1">{sub.icon}</div>
                       <div>
-                        <p className="font-medium">{sub.title}</p>
-                        <p className="text-white/70 text-sm">{sub.description}</p>
+                        <p className="font-medium text-sm sm:text-base">{sub.title}</p>
+                        <p className="text-white/70 text-xs sm:text-sm">{sub.description}</p>
                       </div>
                     </motion.div>
                   ))}
